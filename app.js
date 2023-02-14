@@ -2,7 +2,7 @@ let min = 10000;
 let max = 90000;
 let num = Math.floor(Math.random() * min) + max;
 
-document.getElementById('ticketNum').innerText = num;
+document.getElementById('ticketNumber').innerText = num;
 
 function maybeAlert() {
     alert('Amazing! :D');
