@@ -16,4 +16,4 @@ Test this function with the following numbers:
 The results should be 4, 12, and 2940.*/
 console.log(addNumbers(2,2))
 console.log(addNumbers(9,3))
-console.log(addNumbers(2938s,2))
+console.log(addNumbers(2938,2))
