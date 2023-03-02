@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pet Care Database</title>
+    <link rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+    <h1>Pet Care Database</h1>
+    <nav>
+        {% if 'user_id' in session %}
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('add_pet') }}">Add Pet</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+    </nav>
+    <hr>
+    {% if 'user_id' in session %}
+        <h2>My Pets</h2>
+        {% if pets %}
+            <ul>
+                {% for pet in pets %}
+                    <li>
+                        <img src="{{ pet.profile_pic }}" alt="{{ pet.name }}">
+                        <h3>{{ pet.name }}</h3>
+                        <p>Breed: {{ pet.breed }}</p>
+                        <p>Age: {{ pet.age }}</p>
+                        <p>Gender: {{ pet.gender }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You don't have any pets yet.</p>
+        {% endif %}
+    {% else %}
+        <h2>Welcome to Pet Care Database</h2>
+        <p>Please log in or register to get started.</p>
+    {% endif %}
+</body>
+</html>
