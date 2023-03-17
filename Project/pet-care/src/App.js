@@ -1,32 +1,16 @@
-import './style.css';
-import Hamburger from "./components/Hamburger";
-import Nav from "./components/Nav";
-import Home from "./components/Home";
-import Footer from "./components/Footer";
-import { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  function handleClick() {
-    setIsOpen(!isOpen);
-  }
-
   return (
-<>
-    <header>
-      <h1>Pet Care System</h1>
-    </header>
-    <div className="menu-container">
-      <Hamburger isOpen={isOpen} onClick={handleClick} />
-          {isOpen ? <Nav /> : null}
-    </div>
-    <main role="main" className={isOpen ? 'content content--open' : 'content'}>
-        <Home />
-    </main>
-    <Footer/>
-    
-</> );
-    
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Dashboard} />
+        {/* Add more routes here */}
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;
